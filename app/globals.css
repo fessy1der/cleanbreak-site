@@ -153,29 +153,33 @@ main { min-height: 60vh; }
 .heroShot { display: flex; justify-content: center; }
 .heroShot .phoneFrame { width: min(300px, 70vw); }
 
+/* The bezel is drawn for the 300px hero; --s scales every fixed part of
+   it (padding, radii, notch) together wherever the frame renders smaller,
+   so a card-sized phone keeps the hero's proportions instead of its pixels. */
 .phoneFrame {
+  --s: 1;
   position: relative;
   width: 100%;
   background: #0f1d20;
-  border-radius: 44px;
-  padding: 12px;
+  border-radius: calc(44px * var(--s));
+  padding: calc(12px * var(--s));
   box-shadow: 0 24px 60px rgba(13, 28, 28, 0.22);
 }
 .phoneFrame img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 34px;
+  border-radius: calc(34px * var(--s));
 }
 .phoneNotch {
   position: absolute;
-  top: 24px;
+  top: calc(20px * var(--s));
   left: 50%;
   transform: translateX(-50%);
   width: 32%;
-  height: 26px;
+  height: calc(22px * var(--s));
   background: #0f1d20;
-  border-radius: 14px;
+  border-radius: calc(12px * var(--s));
   z-index: 2;
 }
 
@@ -197,7 +201,7 @@ main { min-height: 60vh; }
   .cards.oneRow { gap: 10px; }
   .cards.oneRow .featureCard { padding: 12px 12px 14px; }
   .cards.oneRow .featureShot { padding: 2px 0 10px; }
-  .cards.oneRow .featureShot .phoneFrame { width: min(210px, 92%); }
+  .cards.oneRow .featureShot .phoneFrame { width: min(210px, 92%); --s: 0.3; }
   .cards.oneRow .featureCard h3 { font-size: 14px; }
   .cards.oneRow .featureCard p { font-size: 12px; line-height: 1.5; }
 }
@@ -209,7 +213,7 @@ main { min-height: 60vh; }
 }
 .bankTinted .featureCard { background: rgba(255, 255, 255, 0.75); }
 .featureShot { display: flex; justify-content: center; padding: 6px 0 18px; }
-.featureShot .phoneFrame { width: min(210px, 70%); }
+.featureShot .phoneFrame { width: min(210px, 70%); --s: 0.7; }
 .featureCard h3 { margin: 0 0 8px; font-size: 18px; }
 .featureCard p { margin: 0; font-size: 15px; color: var(--text-muted); line-height: 1.6; }
 
