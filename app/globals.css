@@ -1,49 +1,138 @@
+/* CleanBreak's palette, carried over from the app's Color+Theme.swift and
+   the dawn sampled from its hero artwork. One source of truth per side. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #026e6e;
+  --text: #0d1c1c;
+  --text-muted: #5f706e;
+  --background: #f7fcfc;
+  --surface: #abdcd6;
+  --mint: #f0faf8;
+  --sky-top: #baebe2;
+  --sky-mid: #ddf6df;
+  --sun-haze: #f4fbdc;
+  --treeline: #36585b;
+  --band-deep: #2c4b51;
+  --radius-card: 16px;
+  --radius-control: 12px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; }
 
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
+html, body {
   margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--text);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+main { min-height: 60vh; }
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* ── Header ───────────────────────────────────────────── */
+.siteHeader {
+  background: linear-gradient(var(--sky-top), var(--sky-mid));
 }
+.siteHeader nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.wordmark {
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--text);
+}
+.wordmark:hover { text-decoration: none; }
+.siteHeader nav .links { display: flex; gap: 24px; font-size: 15px; font-weight: 600; }
+
+/* ── Dawn hero ────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(var(--sky-mid) 0%, var(--sun-haze) 70%, var(--sky-mid) 100%);
+  padding: 72px 0 0;
+  text-align: center;
+  overflow: hidden;
+}
+.hero h1 {
+  font-size: clamp(34px, 7vw, 52px);
+  font-weight: 800;
+  margin: 0 0 16px;
+  letter-spacing: -0.5px;
+}
+.hero p.lede {
+  font-size: 19px;
+  color: var(--text-muted);
+  max-width: 34em;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+.hero .cta {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: var(--radius-card);
+  margin-bottom: 10px;
+}
+.hero .cta:hover { text-decoration: none; filter: brightness(1.08); }
+.hero .sub { font-size: 14px; color: var(--text-muted); margin-bottom: 36px; }
+
+/* The treeline the app's Home and widgets stand on. */
+.treeband {
+  height: 90px;
+  background: linear-gradient(var(--treeline), var(--band-deep));
+  clip-path: ellipse(75% 100% at 50% 100%);
+  margin-top: 24px;
+}
+
+/* ── Feature cards ────────────────────────────────────── */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  padding: 48px 0;
+}
+.feature {
+  background: var(--mint);
+  border: 1.5px solid var(--surface);
+  border-radius: var(--radius-card);
+  padding: 22px;
+}
+.feature h3 { margin: 0 0 8px; font-size: 17px; }
+.feature p { margin: 0; font-size: 15px; color: var(--text-muted); line-height: 1.55; }
+
+/* ── Prose pages (privacy, support) ───────────────────── */
+.prose { padding: 56px 0 72px; }
+.prose h1 { font-size: 34px; font-weight: 800; margin: 0 0 6px; }
+.prose .updated { color: var(--text-muted); font-size: 14px; margin-bottom: 36px; }
+.prose h2 { font-size: 21px; margin: 36px 0 10px; }
+.prose p, .prose li { line-height: 1.65; font-size: 16px; }
+.prose li { margin-bottom: 6px; }
+
+/* ── Footer ───────────────────────────────────────────── */
+.siteFooter {
+  background: linear-gradient(var(--treeline), var(--band-deep));
+  color: #fff;
+  margin-top: 48px;
+}
+.siteFooter .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 26px;
+  padding-bottom: 30px;
+  font-size: 14px;
+}
+.siteFooter a { color: #fff; opacity: 0.9; }
+.siteFooter .fine { opacity: 0.65; }
