@@ -1,21 +1,24 @@
 import PhoneFrame from "./PhoneFrame";
 
-/// One tinted card holding a framed screenshot, a title, and a line —
-/// the unit the whole features section is built from.
+/// One numbered card on the dark grid: an index, a framed screenshot,
+/// a title, and a line — the unit the features section is built from.
 export default function FeatureCard({
+  n,
   src,
   alt,
   title,
   blurb,
 }: {
+  n: string;
   src: string;
   alt: string;
   title: string;
   blurb: string;
 }) {
   return (
-    <div className="featureCard">
-      <div className="featureShot">
+    <div className="gridCard">
+      <span className="n">{n}</span>
+      <div className="gridShot">
         <PhoneFrame src={src} alt={alt} />
       </div>
       <h3>{title}</h3>

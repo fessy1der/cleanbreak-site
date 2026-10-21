@@ -22,15 +22,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={manrope.className}>
         <header className="siteHeader">
-          <div className="container">
-            <nav>
-              <Link className="wordmark" href="/">CleanBreak</Link>
-              <div className="links">
-                <Link href="/support">Support</Link>
-                <Link href="/privacy">Privacy</Link>
-              </div>
-            </nav>
-          </div>
+          <nav>
+            <Link className="wordmark" href="/">CleanBreak</Link>
+            <div className="links">
+              <Link className="hideSm" href="/#features">How it works</Link>
+              <Link href="/support">Support</Link>
+              <Link href="/privacy">Privacy</Link>
+              <a className="navCta" href="https://testflight.apple.com" rel="noopener noreferrer">
+                Download
+              </a>
+            </div>
+          </nav>
         </header>
         <main>{children}</main>
         <footer className="siteFooter">
