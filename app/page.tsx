@@ -40,7 +40,7 @@ export default function Home() {
           One screen that tells the truth, one tap when it gets hard, and a
           coach that answers — the three things a quit actually runs on.
         </p>
-        <div className="cards three">
+        <div className="cards three oneRow">
           <FeatureCard
             src="/screens/home.png"
             alt="Home screen with streak, health recovery and general progress"

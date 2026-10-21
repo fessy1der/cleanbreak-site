@@ -191,6 +191,16 @@ main { min-height: 60vh; }
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
+/* The daily loop reads as one breath: its three cards never wrap. */
+.cards.oneRow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 640px) {
+  .cards.oneRow { gap: 10px; }
+  .cards.oneRow .featureCard { padding: 12px 12px 14px; }
+  .cards.oneRow .featureShot { padding: 2px 0 10px; }
+  .cards.oneRow .featureShot .phoneFrame { width: min(210px, 92%); }
+  .cards.oneRow .featureCard h3 { font-size: 14px; }
+  .cards.oneRow .featureCard p { font-size: 12px; line-height: 1.5; }
+}
 .featureCard {
   background: #fff;
   border: 1.5px solid var(--surface);
