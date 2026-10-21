@@ -6,7 +6,7 @@ import "./globals.css";
 const manrope = Manrope({ subsets: ["latin"], weight: ["400", "600", "700", "800"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cleanbreak-site.vercel.app"),
+  metadataBase: new URL("https://cleanbreakapp.vercel.app"),
   title: { default: "CleanBreak — quit smoking, kindly", template: "%s · CleanBreak" },
   description:
     "A calm iOS companion for quitting smoking or vaping: a live streak, honest numbers, a kind coach, and a community that gets it.",
